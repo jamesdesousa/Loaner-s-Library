@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  item: one
+  duedate: 2021-02-12 11:31:30
+
+two:
+  user: two
+  item: two
+  duedate: 2021-02-12 11:31:30
