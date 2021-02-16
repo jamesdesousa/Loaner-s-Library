@@ -23,7 +23,7 @@ class UsersController < ApplicationController
     def show
     end
 
-    def new 
+    def new
         @user = User.new
     end
 
@@ -34,7 +34,7 @@ class UsersController < ApplicationController
 
     def edit
     end
-    
+
     def update
         @user.update(user_params)
         redirect_to user_path(@user)
@@ -42,6 +42,7 @@ class UsersController < ApplicationController
 
     def destroy
         @user.destroy
+        redirect_to login_path  
     end
 
     private
