@@ -1,3 +1,19 @@
 <h1> <%= "#{@user.name}'s settings" %> </h1>
 
-<%= button_to 'delete account', delete_user(@user.id), method: delete, :confirm => "Are you sure you want to delete account?" %>
+<%= render '/shared/messages' %>
+
+<%= form_for @user do |f| %>
+    <p>
+        <%= f.label :password, "Enter a new password" %>
+        <%= f.password_field :password %>
+    </p>
+    <p>
+        Confirm Password: 
+        <%= f.password_field :password_confirmation %>
+    </p>
+    <p>
+        <%= f.submit %>
+    </p>
+<% end %>
+
+<%= button_to 'Delete Account', user_path(@user), method: :delete, data: {:confirm => "Are you sure you want to delete account?"} %>

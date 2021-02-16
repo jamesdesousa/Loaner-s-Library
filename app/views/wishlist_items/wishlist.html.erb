@@ -1,0 +1,7 @@
+<h1>Wishlist</h1>
+
+<ul>
+    <% @wishlist_items.each do |wishlist_item| %>
+        <li> <%= link_to wishlist_item.name, wishlist_item_path(wishlist_item) %> </li>
+    <% end %>
+</ul>

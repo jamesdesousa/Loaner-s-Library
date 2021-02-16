@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
-    before_action :set_logged_in_user, only: [:homepage]
-    before_action :set_user, only: [:show, :edit, :update, :destroy]
+    before_action :set_logged_in_user, only: [:homepage, :settings, :show, :edit, :update, :destroy]
 
     def login
     end
@@ -11,9 +10,17 @@ class UsersController < ApplicationController
             session[:user_id] = @user.id
             redirect_to user_homepage_path(@user)
         else
-            flash[:errors] = ["Incorrect Username/Password"]
-            redirect_to user_homepage_path
+            flash[:messages] = ["Incorrect Username/Password"]
+            redirect_to login_path
         end
+    end
+
+    def logout
+        logout_user
+        redirect_to login_path
+    end
+
+    def settings
     end
 
     def index
@@ -29,7 +36,13 @@ class UsersController < ApplicationController
 
     def create
         @user = User.create(user_params)
-        redirect_to user_path(@user)
+        if @user.valid?  
+            flash[:messages] = ["Account Created! You may now log in."]
+            redirect_to login_path
+        else 
+            flash[:messages] = @user.errors.full_messages.uniq!
+            redirect_to new_user_path
+        end
     end
 
     def edit
@@ -37,7 +50,13 @@ class UsersController < ApplicationController
 
     def update
         @user.update(user_params)
-        redirect_to user_path(@user)
+        if @user.valid?
+            flash[:messages] = ["Password successfully changed"]
+            redirect_to settings_path(@user)
+        else   
+            flash[:messages] = @user.errors.full_messages.uniq!
+            redirect_to settings_path(@user)
+        end
     end
 
     def destroy
@@ -48,7 +67,7 @@ class UsersController < ApplicationController
     private
 
     def user_params
-        params.require(:user).permit(:username, :name, :password)
+        params.require(:user).permit(:username, :name, :password, :password_confirmation)
     end
 
     def set_logged_in_user

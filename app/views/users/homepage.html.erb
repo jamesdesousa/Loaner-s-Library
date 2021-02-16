@@ -1,12 +1,13 @@
 <h1>Welcome, <%= @user.name%>!</h1>
 
+<%= render '/shared/messages' %>
+
 <p>My Stuff</p>
 
 # show items you own 
 
 <p>Stuff I Borrowed</p>
-<!--- things that you've borrowed>
 
 <P>Wishlist</p>
 
-<p> settings - update name/password, delete account </p>
+<%= link_to "User Settings", settings_path(@user) %>
