@@ -6,6 +6,7 @@ class ItemsController < ApplicationController
     end
 
     def show
+      @loan = Loan.new
     end
 
     def new
@@ -13,11 +14,11 @@ class ItemsController < ApplicationController
     end
 
     def create
-        @item = item.create(item_params)
-        if @item.valid?  
+        @item = @current_user.items.create(item_params)
+        if @item.valid?
             flash[:messages] = ["Item created!"]
             redirect_to user_homepage_path(@current_user)
-        else 
+        else
             flash[:messages] = @item.errors.full_messages.uniq!
             redirect_to new_item_path
         end
@@ -31,7 +32,7 @@ class ItemsController < ApplicationController
     #     if @item.valid?
     #         flash[:messages] = ["Password successfully changed"]
     #         redirect_to settings_path(@item)
-    #     else   
+    #     else
     #         flash[:messages] = @item.errors.full_messages.uniq!
     #         redirect_to settings_path(@item)
     #     end
@@ -40,7 +41,7 @@ class ItemsController < ApplicationController
     def destroy
         @item.destroy
         flash[:messages] = ["Item removed"]
-        redirect_to user_homepage_path(@current_user)  
+        redirect_to user_homepage_path(@current_user)
     end
 
     private

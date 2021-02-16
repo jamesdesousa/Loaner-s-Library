@@ -1,8 +1,14 @@
 <h1> <%= @item.name %> </h1>
 
-<h2>Belongs To: <%= @item.user %> </h2>
+<h2>Belongs To: <%= link_to @item.user.name, user_path(@item.user) %> </h2>
 
 <p><%= @item.description %> </p>
 
-<!-- item history, current loans, picture if implemented >
+<%= form_for @loan do |f| %>
+<%= f.hidden_field :item_id, value: @item.id %>
+<%= f.label :duedate %>
+<%= f.datetime_field :duedate, min: DateTime.now %>
+<%= f.submit %>
+<% end %>
 
+<!-- item history, current loans, picture if implemented >

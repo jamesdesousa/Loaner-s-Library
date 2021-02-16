@@ -1,0 +1,16 @@
+<h1> Add to wishlist </h1>
+
+<%= form_for @wishlist_item do |f| %>
+<p>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+</p>
+
+  <%= f.label :description %>
+<p>
+  <%= f.text_area :description, "width" => 80, "rows" => 20 %>
+</p>
+<p>
+  <%= f.submit "Add to wishlist" %>
+</p>
+<% end %>
