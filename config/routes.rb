@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   resources :friendships
+
+  # patch '/loan/:id', to: 'loan#give_back'
   resources :loans
   resources :wishlist_items
   resources :items

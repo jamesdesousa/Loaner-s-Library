@@ -16,4 +16,12 @@ class User < ApplicationRecord
 
     has_secure_password
 
+    def current_loans
+        self.loans.select{ |loan| loan.current }
+    end
+
+    def past_loans
+        self.loans.select{ |loan| !loan.current }
+    end
+
 end

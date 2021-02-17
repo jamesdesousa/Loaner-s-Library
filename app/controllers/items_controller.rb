@@ -6,7 +6,11 @@ class ItemsController < ApplicationController
     end
 
     def show
-      @loan = Loan.new
+        if @item.current_loan
+            @loan = Loan.find(@item.current_loan)
+        else
+            @loan = Loan.new
+        end
     end
 
     def new

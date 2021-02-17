@@ -1,2 +1,30 @@
-<h1><%= @user.name %>
-<p>Username: <%= @user.username%> </p>
+<h1><%= @user.name %> </h1>
+
+<p><%= @user.name %>'s Stuff</p>
+<ul>
+    <% @user.items.each do |item| %>
+        <li> <%= link_to item.name, item_path(item) %> </li>
+    <% end %>
+</ul>
+
+<% if @user.current_loans != [] %>
+    <p> <%= @user.name %>'s Current Loans </p>
+    <ul>
+        <% @user.current_loans.each do |loan| %>
+            <li> <%= link_to loan.item.name, item_path(loan.item) %> </li>
+        <% end %>
+    </ul>
+<% else %>
+    <p> <%= @user.name %> does not have any current loans. </p>
+<% end %>
+
+<% if @user.past_loans != [] %>
+    <p> <%= @user.name %>'s Past Loans </p>
+    <ul>
+        <% @user.past_loans.each do |loan| %>
+            <li> <%= link_to loan.item.name, item_path(loan.item) %> </li>
+        <% end %>
+    </ul>
+<% else %>
+    <p> <%= @user.name %> has never borrowed any items.</p>
+<% end %>
