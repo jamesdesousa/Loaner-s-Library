@@ -20,7 +20,7 @@ class WishlistItemsController < ApplicationController
         @wishlist_item = @current_user.wishlist_items.create(wishlist_item_params)
         if @wishlist_item.valid?
             flash[:messages] = ["Item added to wishlist"]
-            redirect_to user_homepage_path(@current_user)
+            redirect_to user_homepage_path
         else
             flash[:messages] = @item.errors.full_messages.uniq!
             redirect_to new_wishlist_item_path
@@ -44,7 +44,7 @@ class WishlistItemsController < ApplicationController
     def destroy
         @wishlist_item.destroy
         flash[:messages] = ["Item removed from wishlist"]
-        redirect_to user_homepage_path(@current_user)
+        redirect_to user_homepage_path
     end
 
     private

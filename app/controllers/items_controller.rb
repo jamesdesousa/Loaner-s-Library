@@ -21,7 +21,7 @@ class ItemsController < ApplicationController
         @item = @current_user.items.create(item_params)
         if @item.valid?
             flash[:messages] = ["Item created!"]
-            redirect_to user_homepage_path(@current_user)
+            redirect_to user_homepage_path
         else
             flash[:messages] = @item.errors.full_messages.uniq!
             redirect_to new_item_path

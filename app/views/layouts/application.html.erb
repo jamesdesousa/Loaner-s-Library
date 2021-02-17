@@ -12,8 +12,8 @@
 
   <body>
     <% if is_logged_in? %>
-      <%= link_to "Homepage", user_homepage_path(session[:user_id]) %>
-      <%= link_to "Log Out", logout_path, method: :delete %>
+      <%= link_to "Homepage", user_homepage_path%>
+      <%= link_to "Log Out", login_path, method: :delete %>
       <%= link_to "Items", items_path, method: :get %>
     <% end %>
     <%= yield %>

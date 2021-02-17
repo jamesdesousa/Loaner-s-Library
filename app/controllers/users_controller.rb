@@ -8,7 +8,7 @@ class UsersController < ApplicationController
         @user = User.find_by(username: params[:username])
         if @user && @user.authenticate(params[:password])
             session[:user_id] = @user.id
-            redirect_to user_homepage_path(@user)
+            redirect_to user_homepage_path
         else
             flash[:messages] = ["Incorrect Username/Password"]
             redirect_to login_path
@@ -60,7 +60,7 @@ class UsersController < ApplicationController
     end
 
     def destroy
-        @user.destroy
+        @current_user.destroy
         redirect_to login_path  
     end
 
