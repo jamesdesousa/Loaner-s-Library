@@ -37,10 +37,10 @@ class UsersController < ApplicationController
     def create
         @user = User.create(user_params)
         if @user.valid?  
-            #flash[:messages] = ["Account Created! You may now log in."]
+            flash[:messages] = ["Account Created! You may now log in."]
             redirect_to login_path
         else 
-            flash[:messages] = @user.errors.full_messages.uniq!
+            flash[:messages] = @user.errors.full_messages.uniq
             redirect_to new_user_path
         end
     end
@@ -54,7 +54,7 @@ class UsersController < ApplicationController
             flash[:messages] = ["Password successfully changed"]
             redirect_to settings_path(@user)
         else   
-            flash[:messages] = @user.errors.full_messages.uniq!
+            flash[:messages] = @user.errors.full_messages.uniq
             redirect_to settings_path(@user)
         end
     end

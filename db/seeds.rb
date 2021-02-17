@@ -12,7 +12,7 @@ w1 = WishlistItem.create(user_id: 1, name: "money", description: "cash")
 l1 = Loan.create(user_id:1, item_id: 2, duedate: Date.today + 1.week)
 l2 = Loan.create(user_id:2, item_id: 1, duedate: Date.today + 2.week)
 
-friendship = Friendship.create(friend_one_id: 1, friend_two_id: 2)
-friendship1 = Friendship.create(friend_one_id: 1, friend_two_id: 3)
+friendship = Friendship.create(user_id: 1, friend_id: 2)
+friendship1 = Friendship.create(user_id: 1, friend_id: 3)
 
 puts "Done seeding"

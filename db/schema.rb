@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(version: 2021_02_12_163215) do
   enable_extension "plpgsql"
 
   create_table "friendships", force: :cascade do |t|
-    t.integer "friend_one_id"
-    t.integer "friend_two_id"
+    t.integer "user_id"
+    t.integer "friend_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

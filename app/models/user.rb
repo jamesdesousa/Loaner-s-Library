@@ -5,7 +5,7 @@ class User < ApplicationRecord
     has_many :borrowers
     has_many :borrowed_items, through: :borrowers
     has_many :friendships
-    has_many 
+    has_many :friends, through: :friendships
     #macros for friendships/ items through loans
 
 
