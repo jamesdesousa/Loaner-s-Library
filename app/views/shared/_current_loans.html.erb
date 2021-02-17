@@ -1,0 +1,12 @@
+
+<% if @user.current_loans %>
+  <ul>
+    <% @user.current_loans.each do |loan| %>
+    <li>
+      <%= link_to loan.item.name, item_path(loan.item) %>
+    </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>Not currently borrowing anything.</p>
+<% end %>

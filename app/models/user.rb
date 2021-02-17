@@ -3,7 +3,9 @@ class User < ApplicationRecord
     has_many :items
     has_many :wishlist_items
     has_many :borrowers
-    has_many :borrowed_items, through: :borrowers 
+    has_many :borrowed_items, through: :borrowers
+    has_many :friendships
+    has_many 
     #macros for friendships/ items through loans
 
 

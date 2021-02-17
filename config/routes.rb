@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :friendships
 
-  # patch '/loan/:id', to: 'loan#give_back'
+
   resources :loans
   resources :wishlist_items
   resources :items
@@ -15,5 +15,5 @@ Rails.application.routes.draw do
   resources :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
-  
+
 end

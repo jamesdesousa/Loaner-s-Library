@@ -4,55 +4,20 @@
 
 <p>My Stuff</p>
 <%= link_to "Add item you own", new_item_path %>
-<ul>
-  <% @user.items.each do |item| %>
-    <li>
-    <%= link_to item.name, item_path(item) %>
-    </li>
-  <% end %>
-</ul>
+<%= render 'shared/items' %>
 
 
 <p>Stuff I'm Borrowing</p>
-<% if @user.current_loans %>
-  <ul>
-    <% @user.current_loans.each do |loan| %>
-    <li>
-      <%= link_to loan.item.name, item_path(loan.item) %>
-    </li>
-    <% end %>
-  </ul>
-<% else %>
-  <p>Not currently borrowing anything.</p>
-<% end %>
+<%= render 'shared/current_loans'%>
 
 <p>Stuff I Borrowed</p>
-<%if @user.past_loans %>
-  <ul>
-    <% @user.past_loans.each do |loan| %>
-    <li>
-      <%= link_to loan.item.name, item_path(loan.item) %>
-    </li>
-    <% end %>
-  </ul>
-<% else %>
-  <p>You have never borrowed anything.</p>
-<% end %>
+<%=render '/shared/past_loans'%>
 
 <P>Wishlist</p>
+<%= render '/shared/wishlist' %>
 <%= link_to "Add item to wishlist", new_wishlist_item_path %>
-<% if !@user.wishlist_items.empty? %>
-  <ul>
-    <% @user.wishlist_items.each do |wishlist_item| %>
-    <li>
-    <%= link_to wishlist_item.name, wishlist_item_path(wishlist_item) %>
-    </li>
-    <% end %>
-  </ul>
-<% else %>
-  <p> No items on your wishlist.</p>
-<% end %> 
 
 
-
+<p>
 <%= link_to "User Settings", settings_path(@user) %>
+</p>

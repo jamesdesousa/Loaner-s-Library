@@ -1,0 +1,13 @@
+
+
+  <% if @user.past_loans %>
+  <ul>
+    <% @user.past_loans.each do |loan| %>
+    <li>
+      <%= link_to loan.item.name, item_path(loan.item) %>
+    </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>You have never borrowed anything.</p>
+<% end %>
