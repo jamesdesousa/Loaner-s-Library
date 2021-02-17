@@ -1,7 +1,11 @@
 class UsersController < ApplicationController
-    before_action :set_logged_in_user, only: [:homepage, :settings, :show, :edit, :update, :destroy]
+    before_action :set_user, only: [:show]
 
     def login
+    end
+
+    def homepage
+        @user = @current_user
     end
 
     def handle_login
@@ -70,8 +74,8 @@ class UsersController < ApplicationController
         params.require(:user).permit(:username, :name, :password, :password_confirmation)
     end
 
-    def set_logged_in_user
-        @user = User.find(session[:user_id])
+    def set_user
+        @user = User.find(params[:id])
     end
 
 end
