@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :friendships
-
+  
+  post '/friendships/:id', to: 'friendships#create', as: 'create_friendship'
 
   resources :loans
   resources :wishlist_items

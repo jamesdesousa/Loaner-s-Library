@@ -1,11 +1,7 @@
 class Friendship < ApplicationRecord
-  belongs_to :friend_one, :class_name => "User", foreign_key: :friend_one_id
-  belongs_to :friend_two, :class_name => "User", foreign_key: :friend_two_id
+  belongs_to :user
+  belongs_to :friend, :class_name => "User"
 
-  # validate :friendship_possible
+  #validates :friend, uniqueness: true
 
-
-  # def friendship_possible
-  #   if friend_one.frienships.includes?
-  # end
 end
