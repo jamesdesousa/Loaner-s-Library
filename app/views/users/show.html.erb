@@ -1,5 +1,9 @@
 <h1><%= @user.name %> </h1>
-<%= button_to "Add Friend", create_friendship_path, method: :post %>
+<% if @current_user.friends.include?(@user) %>
+  <p> You are already friends </p>
+  <% else %>
+  <%= button_to "Add Friend", create_friendship_path, method: :post %>
+<% end %> 
 
 <p><%= @user.name %>'s Stuff</p>
 <%= render 'shared/items'%>
@@ -7,5 +11,5 @@
 <p> Current loans: </p>
 <%= render 'shared/current_loans' %>
 
-<p> Past loans: </p> 
+<p> Past loans: </p>
 <%= render 'shared/past_loans' %>

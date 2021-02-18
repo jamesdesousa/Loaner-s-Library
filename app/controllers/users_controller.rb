@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
     before_action :set_user, only: [:show]
+    skip_before_action :authorized, only: [:login, :handle_login, :create, :new]
+
 
     def login
     end
@@ -24,6 +26,11 @@ class UsersController < ApplicationController
         redirect_to login_path
     end
 
+    def destroy
+        @current_user.destroy
+        redirect_to login_path
+    end
+
     def settings
     end
 
@@ -40,10 +47,10 @@ class UsersController < ApplicationController
 
     def create
         @user = User.create(user_params)
-        if @user.valid?  
+        if @user.valid?
             flash[:messages] = ["Account Created! You may now log in."]
             redirect_to login_path
-        else 
+        else
             flash[:messages] = @user.errors.full_messages.uniq
             redirect_to new_user_path
         end
@@ -57,16 +64,13 @@ class UsersController < ApplicationController
         if @user.valid?
             flash[:messages] = ["Password successfully changed"]
             redirect_to settings_path(@user)
-        else   
+        else
             flash[:messages] = @user.errors.full_messages.uniq
             redirect_to settings_path(@user)
         end
     end
 
-    def destroy
-        @current_user.destroy
-        redirect_to login_path  
-    end
+
 
     private
 

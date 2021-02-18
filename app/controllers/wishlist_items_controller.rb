@@ -50,7 +50,7 @@ class WishlistItemsController < ApplicationController
     private
 
     def wishlist_item_params
-        params.require(:wishlist_item).permit(:name, :description, :user_id)
+        params.require(:wishlist_item).permit(:name, :description, :user_id, :image)
     end
 
     def set_wishlist_item

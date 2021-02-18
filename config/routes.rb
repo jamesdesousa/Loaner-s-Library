@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
   post '/friendships/:id', to: 'friendships#create', as: 'create_friendship'
 
   resources :loans
@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   post '/handle_login', to: 'users#handle_login'
   get '/users/homepage', to: 'users#homepage', as: 'user_homepage'
   get '/users/settings', to: 'users#settings', as: 'settings'
+  delete '/logout', to: 'users#logout', as: 'logout'
   delete '/login', to: "users#destroy"
 
   resources :users

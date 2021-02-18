@@ -13,3 +13,15 @@
  *= require_tree .
  *= require_self
  */
+#logo {
+  background-image: linear-gradient(to left, violet, indigo, blue);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: large;
+}
+
+.items {
+  align-items: center
+  flex-basis: 30%;
+}

@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2021_02_12_163215) do
     t.string "name"
     t.string "description"
     t.bigint "user_id", null: false
+    t.string "image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_items_on_user_id"
@@ -54,6 +55,7 @@ ActiveRecord::Schema.define(version: 2021_02_12_163215) do
     t.bigint "user_id", null: false
     t.string "name"
     t.string "description"
+    t.string "image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_wishlist_items_on_user_id"

@@ -1,9 +1,10 @@
 
 
-  <% if @user.past_loans %>
-  <ul>
+  <% if @user.past_loans != [] %>
+  <ul class = "items">
     <% @user.past_loans.each do |loan| %>
     <li>
+      <img src= "<%= loan.item.image %>", alt="<%= loan.item.name %>">
       <%= link_to loan.item.name, item_path(loan.item) %>
     </li>
     <% end %>
