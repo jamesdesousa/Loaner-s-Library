@@ -1,14 +1,13 @@
 <% if @user.items != [] %>
-  <ul>
+  <ul class = "items">
     <% @user.items.each do |item| %>
-      <li  class = "items">
-      <img src= "<%= item.image %>", alt="<%= item.name %>">
-      <br>
-      <%= link_to item.name, item_path(item) %>
-
+      <li class ="item">
+        <img class = "image" img src= "<%= item.image %>", alt="<%= item.name %>">
+        <br>
+        <%= link_to item.name, item_path(item) %>
       </li>
     <% end %>
   </ul>
 <% else %>
-<p> No items availible </p>
+  <p> No items availible </p>
 <% end %>

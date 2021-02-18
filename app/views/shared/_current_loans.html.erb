@@ -1,14 +1,11 @@
-
 <% if @user.current_loans != [] %>
-  <ul >
+  <ul class = "items">
     <% @user.current_loans.each do |loan| %>
-    <li class = "items">
-      <img src= "<%= loan.item.image %>", alt="<%= loan.item.name %>">
-      <br>
-      <%= link_to loan.item.name, item_path(loan.item) %>
-
-    </li>
-    <br>
+      <li class = "item">
+        <img class = "image" img src= "<%= loan.item.image %>", alt="<%= loan.item.name %>">
+        <br>
+        <%= link_to loan.item.name, item_path(loan.item) %>
+      </li>
     <% end %>
   </ul>
 <% else %>

@@ -1,5 +1,5 @@
 <h1> <%= @item.name %> </h1>
-<img src= "<%= @item.image %>">
+<img class = "image" img src= "<%= @item.image %>">
 
 <% if @item.user_id  %>
 <h2>Belongs To: <%= link_to @item.user.name, user_path(@item.user) %> </h2>

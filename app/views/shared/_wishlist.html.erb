@@ -1,13 +1,11 @@
-
-
 <% if !@user.wishlist_items.empty? %>
   <ul class = "items">
     <% @user.wishlist_items.each do |wishlist_item| %>
-    <li>
-    <img src= "<%= wishlist_item.image %>", alt="<%= wishlist_item.name %>">
-    <br>
-    <%= link_to wishlist_item.name, wishlist_item_path(wishlist_item) %>
-    </li>
+      <li class = "item">
+        <img class = "image" img src= "<%= wishlist_item.image %>", alt="<%= wishlist_item.name %>">
+        <br>
+        <%= link_to wishlist_item.name, wishlist_item_path(wishlist_item) %>
+      </li>
     <% end %>
   </ul>
 <% else %>

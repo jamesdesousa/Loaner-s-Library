@@ -10,4 +10,5 @@ class FriendshipsController < ApplicationController
         end
         redirect_to user_path(params[:id])
       end 
+      
 end

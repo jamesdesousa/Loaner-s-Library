@@ -3,11 +3,8 @@
 <ul>
     <% @items.each do |item| %>
         <li>
-          <img src= "<%= item.image %>">
+          <img class = "image" img src= "<%= item.image %>">
           <%= link_to item.name, item_path(item) %>
-
-
-         </li>
-
+        </li>
     <% end %>
 </ul>
