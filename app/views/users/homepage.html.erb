@@ -1,23 +1,18 @@
-<h2 class="sub-header"><%= @current_user.name%>'s Homepage</h3>
+<h2><%= @current_user.name.capitalize%>'s Homepage</h3>
 
 <%= render '/shared/messages' %>
 
-<h3 class="sub-header">My Stuff</h3>
+<h3>My Things</h3>
 <%= link_to "Add item you own", new_item_path %>
 <%= render 'shared/items' %>
 
-
-<h3 class="sub-header">Stuff I'm Borrowing</h3>
+<h3>Current Loans</h3>
 <%= render 'shared/current_loans'%>
 
-<h3 class="sub-header">Stuff I Borrowed</h3>
+<h3>Previous Loans</h3>
 <%=render '/shared/past_loans'%>
 
-<h3 class="sub-header">Wishlist</h3>
+<h3>Wishlist</h3>
 <%= render '/shared/wishlist' %>
 <%= link_to "Add item to wishlist", new_wishlist_item_path %>
 
-
-<p>
-<%= link_to "User Settings", settings_path %>
-</p>

@@ -2,9 +2,9 @@
   <ul class = "items">
     <% @user.wishlist_items.each do |wishlist_item| %>
       <li class = "item">
-        <img class = "image" img src= "<%= wishlist_item.image %>", alt="<%= wishlist_item.name %>">
+        <%= link_to image_tag(wishlist_item.image, class: "image"), item_path(wishlist_item) %>
         <br>
-        <%= link_to wishlist_item.name, wishlist_item_path(wishlist_item) %>
+        <%= link_to wishlist_item.name.capitalize, wishlist_item_path(wishlist_item) %>
       </li>
     <% end %>
   </ul>

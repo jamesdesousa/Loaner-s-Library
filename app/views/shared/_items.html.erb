@@ -2,12 +2,12 @@
   <ul class = "items">
     <% @user.items.each do |item| %>
       <li class ="item">
-        <img class = "image" img src= "<%= item.image %>", alt="<%= item.name %>">
+        <%= link_to image_tag(item.image, class: "image"), item_path(item) %>
         <br>
-        <%= link_to item.name, item_path(item) %>
+        <%= link_to item.name.capitalize, item_path(item) %>
       </li>
     <% end %>
   </ul>
 <% else %>
-  <p> No items availible </p>
+  <p> No items available </p>
 <% end %>

@@ -2,9 +2,9 @@
   <ul class = "items">
     <% @user.current_loans.each do |loan| %>
       <li class = "item">
-        <img class = "image" img src= "<%= loan.item.image %>", alt="<%= loan.item.name %>">
+        <%= link_to image_tag(loan.item.image, class: "image"), item_path(loan.item) %>
         <br>
-        <%= link_to loan.item.name, item_path(loan.item) %>
+        <%= link_to loan.item.name.capitalize, item_path(loan.item) %>
       </li>
     <% end %>
   </ul>
