@@ -1,15 +1,16 @@
-<h1><%= @user.name %> </h1>
+<h2><%= @user.name%>'s Profile </h2>
 <% if @current_user.friends.include?(@user) %>
-  <p> You are already friends </p>
-  <% else %>
+  <p> You are already friends with <%= @user.name %>. </p>
+  <%= button_to "Remove Friend", destroy_friendship_path(@user), method: :delete %>
+<% else %>
   <%= button_to "Add Friend", create_friendship_path, method: :post %>
 <% end %> 
 
-<p><%= @user.name %>'s Stuff</p>
+<h3><%= @user.name %>'s Things</h3>
 <%= render 'shared/items'%>
 
-<p> Current loans: </p>
+<h3>Current Loans</h3>
 <%= render 'shared/current_loans' %>
 
-<p> Past loans: </p>
+<h3>Previous Loans </h3>
 <%= render 'shared/past_loans' %>

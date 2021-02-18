@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
+  get '/friends', to: 'friendships#friends', as: 'friends'
   post '/friendships/:id', to: 'friendships#create', as: 'create_friendship'
+  delete '/friendships/:id', to: 'friendships#delete', as: 'destroy_friendship'
 
   resources :loans
   resources :wishlist_items

@@ -4,10 +4,10 @@
       <li class = "item">
         <%= link_to image_tag(wishlist_item.image, class: "image"), item_path(wishlist_item) %>
         <br>
-        <%= link_to wishlist_item.name.capitalize, wishlist_item_path(wishlist_item) %>
+        <%= link_to wishlist_item.name, wishlist_item_path(wishlist_item) %>
       </li>
     <% end %>
   </ul>
 <% else %>
-  <p> No items on your wishlist.</p>
+  <p><%= @user.name %> has no items on their wishlist.</p>
 <% end %>

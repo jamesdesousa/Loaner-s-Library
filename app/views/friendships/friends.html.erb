@@ -1,0 +1,12 @@
+<h2>Your Friends</h2>
+
+<% if !@friends.empty? %>
+    <ul>
+        <% @friends.each do |friend| %>
+            <li> <%= link_to friend.name, user_path(friend) %> </li>
+        <% end %>
+    </ul>
+<% else %>
+    <p> You have no friends :( </p>
+<% end %>
+

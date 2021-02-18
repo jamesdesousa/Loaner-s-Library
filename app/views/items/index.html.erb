@@ -1,10 +1,13 @@
 <h1>All Items</h1>
 
-<ul>
+<ul class= "items">
     <% @items.each do |item| %>
-        <li>
-          <img class = "image" img src= "<%= item.image %>">
-          <%= link_to item.name.capitalize, item_path(item) %>
+        <li class= "item">
+          <%= link_to image_tag(item.image, class: "image"), item_path(item) %>
+          <br>
+          <%= link_to item.name, item_path(item) %>
+          <br>
+          Belongs to: <%= item.user.name %>
         </li>
     <% end %>
 </ul>
