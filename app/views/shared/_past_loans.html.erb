@@ -3,6 +3,7 @@
     <% @user.past_loans.each do |loan| %>
       <li class="item">
         <img class = "image" img src= "<%= loan.item.image %>", alt="<%= loan.item.name %>">
+        <br>
         <%= link_to loan.item.name, item_path(loan.item) %>
       </li>
     <% end %>

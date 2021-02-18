@@ -13,13 +13,8 @@
  *= require_tree .
  *= require_self
  */
-
-#logo {
-  text-align: center;
-  font-family: Verdana, sans-serif;
-}
-
-#navbar {
+ 
+body {
   text-align: center;
   font-family: Verdana, sans-serif;
 }
