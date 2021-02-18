@@ -1,6 +1,10 @@
 <h2><%= @user.name%>'s Profile </h2>
 <% if @current_user.friends.include?(@user) %>
-  <p> You are already friends with <%= @user.name %>. </p>
+  <% if flash[:messages] %>
+    <%= render '/shared/messages' %>
+  <% else %> 
+    <p> You are already friends with <%= @user.name %>. </p>
+  <% end %>
   <%= button_to "Remove Friend", destroy_friendship_path(@user), method: :delete %>
 <% else %>
   <%= button_to "Add Friend", create_friendship_path, method: :post %>

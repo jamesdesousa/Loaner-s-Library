@@ -1,18 +1,23 @@
 <h2><%= @current_user.name%>'s Homepage</h3>
 
 <%= render '/shared/messages' %>
+<br>
 
 <h3>My Things</h3>
 <%= link_to "Add item you own", new_item_path %>
 <%= render 'shared/items' %>
+<br>
 
 <h3>Current Loans</h3>
 <%= render 'shared/current_loans'%>
+<br>
 
 <h3>Previous Loans</h3>
 <%=render '/shared/past_loans'%>
+<br>
 
 <h3>Wishlist</h3>
-<%= render '/shared/wishlist' %>
 <%= link_to "Add item to wishlist", new_wishlist_item_path %>
+<%= render '/shared/wishlist' %>
+
 

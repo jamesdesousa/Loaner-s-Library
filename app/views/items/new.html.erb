@@ -3,21 +3,17 @@
 <%= form_for @item do |f| %>
 <p>
   <%= f.label :name %>
+  <br>
   <%= f.text_field :name %>
-</p>
-<p>
+  <br>
   <%= f.label :description %>
-  </p>
-<p>
+  <br>
   <%= f.text_area :description, "width" => 200, "rows" => 10 %>
-</p>
-<p>
+  <br>
   <%= f.label :image, "Image URL" %>
-</p>
-<p>
+  <br>
   <%= f.text_area :image %>
-  </p>
-<p>
+  <br>
   <%= f.submit "Add to items" %>
 </p>
 <% end %>

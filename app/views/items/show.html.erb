@@ -2,19 +2,16 @@
 <%= render '/shared/messages' %>
 <img class = "image" img src= "<%= @item.image %>">
 
-<% if @item.user_id  %>
 <h3>Belongs To: <%= link_to @item.user.name, user_path(@item.user) %> </h2>
-<% else %>
-<h3>Belongs To: Deleted User </h2>
-<% end %>
-
 
 <p><%= @item.description %> </p>
 
-
 <% if @item.current_loan %>
-    <p>Item currently loaned out to: <%= link_to @loan.borrower.name, user_path(@loan)%>. </p>
-    </p>Expected duedate: <%= @loan.duedate %>. </p>
+    <p>
+        Item currently loaned out to: <%= link_to @loan.borrower.name, user_path(@loan.borrower)%>
+        <br>
+        Expected duedate: <%= @loan.duedate %> 
+    </p>
 
     <% if @loan.borrower == @current_user %>
         <%= button_to "Return Item", loan_path(@loan), method: :patch %>
@@ -32,4 +29,4 @@
       <% end %>
   <% end %>
 
-<!-- item history, current loans, picture if implemented >
+

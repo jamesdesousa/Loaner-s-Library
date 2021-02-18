@@ -10,7 +10,7 @@ class FriendshipsController < ApplicationController
     if @friendship.valid?
       flash[:messages] = ["Friend added!"]
     else
-      flash[:messages] = @friendship.errors.full_messages.uniq!
+      flash[:messages] = @friendship.errors.full_messages.uniq
     end
     redirect_to user_path(params[:id])
   end 

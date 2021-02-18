@@ -3,7 +3,7 @@ class LoansController < ApplicationController
   def create
       @loan = @current_user.loans.create(loan_params)
       if @loan.valid?
-          flash[:messages] = ["loan created!"]
+          flash[:messages] = ["Item borrowed. Bring it back on time!"]
           redirect_to item_path(@loan.item_id)
       else
           flash[:messages] = @loan.errors.full_messages.uniq

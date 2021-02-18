@@ -60,13 +60,13 @@ class UsersController < ApplicationController
     end
 
     def update
-        @user.update(user_params)
-        if @user.valid?
+        @current_user.update(user_params)
+        if @current_user.valid?
             flash[:messages] = ["Password successfully changed"]
-            redirect_to settings_path(@user)
+            redirect_to settings_path
         else
-            flash[:messages] = @user.errors.full_messages.uniq
-            redirect_to settings_path(@user)
+            flash[:messages] = @current_user.errors.full_messages.uniq
+            redirect_to settings_path
         end
     end
 
