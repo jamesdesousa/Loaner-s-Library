@@ -13,13 +13,29 @@
  *= require_tree .
  *= require_self
  */
- 
+
+ * {
+   background-color: #F0FFFF;
+   /* background: linear-gradient(to left, violet, indigo, blue, green); */
+   /* color: #FFFFFF; */
+ }
+ #logo {
+   background-image: linear-gradient(to left, violet, indigo, blue, green);
+   color: #FFFFFF;
+   text-align: center;
+   width: 100%;
+   font-size: 50px;
+   font-family: 'Roboto';
+   font-weight: 600;
+   z-index: -1;
+ }
 body {
   text-align: center;
   font-family: Verdana, sans-serif;
 }
 
-ul { 
+
+ul {
   list-style: none;
 }
 
